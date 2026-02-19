@@ -46,7 +46,7 @@ def astar(grid, start, goal):
                 continue
 
             # Skip obstacle
-            if grid[neighbor[0]][neighbor[1]] == 0:
+            if grid[neighbor[0]][neighbor[1]]%2 == 0:
                 continue
 
             # Calculate cost
@@ -94,11 +94,11 @@ def draw_grid():
             x2 = x1 + cell_size
             y2 = y1 + cell_size
 
-            color = "gray"
-            if grid[i][j] == (x1%2==0):
-                color = "black"
+            color = "white"
+            if grid[i][j]%2 == 0:
+                color = "gray"
 
-            rect = canvas.create_rectangle(x1, y1, x2, y2, fill=color, outline="gray")
+            rect = canvas.create_rectangle(x1, y1, x2, y2, fill=color, outline="black")
             canvas.create_text(
                 x1 + cell_size//2,
                 y1 + cell_size//2,
